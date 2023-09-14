@@ -41,6 +41,6 @@ if uploadFile is not None:
         st.write(test.shape)
         prediction = best_model.predict(test)
         y_pred = np.argmax(prediction, axis=1)
-        st.write(y_pred + "-" + prediction)
+        st.write(str(y_pred) + "-" + str(prediction))
 else:
     st.write("Make sure you image is in JPG/PNG Format.")
