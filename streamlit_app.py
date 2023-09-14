@@ -4,7 +4,6 @@ import numpy as np
 import streamlit as st
 import tensorflow as tf
 from keras.models import load_model
-import cv2
 
 # Function to Read and Manupilate Images
 def load_image(img):
@@ -36,8 +35,11 @@ if uploadFile is not None:
         X = X.resize([224,224])
         X = np.array(X)
         X = X / 255.0
-        st.write(X.shape)
-        prediction = best_model.predict(X)
+        test = []
+        test.append(X)
+        test = np.array(test)
+        st.write(test.shape)
+        prediction = best_model.predict(test)
         y_pred = np.argmax(prediction, axis=1)
         st.write(y_pred + "-" + prediction)
 else:
