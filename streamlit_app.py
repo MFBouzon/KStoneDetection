@@ -45,8 +45,10 @@ if uploadFile is not None:
         prediction = best_model.predict(test)
         y_pred = np.argmax(prediction, axis=1)
         if(y_pred == 0):
+            st.subheader("Positive")
             st.write("This image has a " + str("{:.2f}".format(prediction[0][0]*100)+"% probability of containing a kidney stone."))
         if(y_pred == 1):
+            st.subheader("Negative")
             st.write("This image has a " + str("{:.2f}".format(prediction[0][1]*100)+"% probability of not containing a kidney stone."))    
 else:
     st.write("Make sure you image is in JPG/PNG Format.")
