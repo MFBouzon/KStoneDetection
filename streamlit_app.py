@@ -16,6 +16,9 @@ best_model = tf.keras.models.load_model('modelConv4_test.h5')
 # Uploading the File to the Page
 uploadFile = st.file_uploader(label="Upload image", type=['jpg', 'png'])
 
+st.title("Kidney Stone Detection from Coronal CT Images", divider="black")
+st.header("Upload a coronal CT image to be diagnosted")
+
 # Checking the Format of the page
 if uploadFile is not None:
     # Perform your Manupilations (In my Case applying Filters)
@@ -41,8 +44,8 @@ if uploadFile is not None:
         prediction = best_model.predict(test)
         y_pred = np.argmax(prediction, axis=1)
         if(y_pred == 0):
-            st.write("Positivo (Possui cálculo) com " + str("{:.2f}".format(prediction[0][0]*100)+"% de probabilidade"))
+            st.write(str("{:.2f}".format(prediction[0][0]*100)+"% of chance that this image contains a kidney stone"))
         if(y_pred == 1):
-            st.write("Negativo (Não possui cálculo) com " + str("{:.2f}".format(prediction[0][1]*100) +"% de probabilidade"))    
+            st.write(str("{:.2f}".format(prediction[0][0]*100)+"% of chance that this image does not contains a kidney stone"))    
 else:
     st.write("Make sure you image is in JPG/PNG Format.")
