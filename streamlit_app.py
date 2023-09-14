@@ -31,12 +31,10 @@ if uploadFile is not None:
     st.markdown(hide_img_fs, unsafe_allow_html=True)
     st.write("Image Uploaded Successfully")
     if st.button('Diagnosis'):
-        X = Image.open(uploadFile)
-        X = ImageOps.grayscale(X)              
+        X = Image.open(uploadFile) 
         X = X.resize([224,224])
         X = np.array(X)
         X = X / 255.0
-        print(X.shape)
         prediction = best_model.predict(X)
         y_pred = np.argmax(prediction, axis=1)
         st.write(y_pred + "-" + prediction)
