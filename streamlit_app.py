@@ -4,7 +4,6 @@ import numpy as np
 import streamlit as st
 import tensorflow as tf
 from keras.models import load_model
-import cv2
 
 # Function to Read and Manupilate Images
 def load_image(img):
@@ -32,8 +31,8 @@ if uploadFile is not None:
     st.markdown(hide_img_fs, unsafe_allow_html=True)
     st.write("Image Uploaded Successfully")
     if st.button('Diagnosis'):
-        X = cv2.imread(uploadFile, 0) #Reading color images
-        X = cv2.resize(X, (224, 224) ) #Resize images
+        X = Image.open(img)
+        X = X.resize([224,224])
         X = np.array(X)
         X = X / 255.0
         prediction = best_model.predict(X)
