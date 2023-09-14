@@ -34,7 +34,7 @@ if uploadFile is not None:
     if st.button('Diagnosis'):
         #st.write("100%")
         X = Image.open(uploadFile)
-        X = X.resize(224,224)
+        X = X.resize([224,224])
         X = X / 255.0
         prediction = best_model.predict(X)
         y_pred = np.argmax(prediction, axis=1)
