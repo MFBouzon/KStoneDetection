@@ -38,7 +38,6 @@ if uploadFile is not None:
         test = []
         test.append(X)
         test = np.array(test)
-        st.write(test.shape)
         prediction = best_model.predict(test)
         y_pred = np.argmax(prediction, axis=1)
         if(y_pred == 0):
