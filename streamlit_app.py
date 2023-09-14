@@ -1,5 +1,5 @@
 
-from PIL import Image
+from PIL import Image, ImageOps
 import numpy as np
 import streamlit as st
 import tensorflow as tf
@@ -31,7 +31,8 @@ if uploadFile is not None:
     st.markdown(hide_img_fs, unsafe_allow_html=True)
     st.write("Image Uploaded Successfully")
     if st.button('Diagnosis'):
-        X = Image.open(uploadFile)
+        X = Image.open(uploadFile
+        X = ImageOps.grayscale(X)              
         X = X.resize([224,224])
         X = np.array(X)
         X = X / 255.0
