@@ -42,8 +42,8 @@ if uploadFile is not None:
         prediction = best_model.predict(test)
         y_pred = np.argmax(prediction, axis=1)
         if(y_pred == 0):
-            st.write("Positivo - " + str("{:.2f}".format(prediction[0][0]*100)+"% de precisão"))
+            st.write("Positivo (Possui cálculo) com " + str("{:.2f}".format(prediction[0][0]*100)+"% de probabilidade"))
         if(y_pred == 1):
-            st.write("Negativo - " + str("{:.2f}".format(prediction[0][1]*100) +"% de precisão"))    
+            st.write("Negativo (Não possui cálculo) com " + str("{:.2f}".format(prediction[0][1]*100) +"% de probabilidade"))    
 else:
     st.write("Make sure you image is in JPG/PNG Format.")
