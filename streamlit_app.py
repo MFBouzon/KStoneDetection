@@ -34,8 +34,10 @@ if uploadFile is not None:
         X = Image.open(uploadFile)
         X = ImageOps.grayscale(X)              
         X = X.resize([224,224])
+        print(X.shape)
         X = np.array(X)
         X = X / 255.0
+        print(X.shape)
         prediction = best_model.predict(X)
         y_pred = np.argmax(prediction, axis=1)
         st.write(y_pred + "-" + prediction)
