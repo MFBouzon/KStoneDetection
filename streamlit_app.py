@@ -13,7 +13,7 @@ def load_image(img):
     return image
 
 st.title("Kidney Stone Detection from Coronal CT Images")
-st.header("Upload a coronal CT image to be diagnosted", divider="black")
+st.header("Upload a coronal CT image to be diagnosted", divider="gray")
 
 
 best_model = tf.keras.models.load_model('modelConv4_test.h5')
