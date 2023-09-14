@@ -13,7 +13,7 @@ def load_image(img):
     return image
 
 st.title("Kidney Stone Detection from Coronal CT Images")
-st.header("Upload a coronal CT image to be diagnosted", divider="gray")
+st.header("Upload a coronal CT image to be diagnosed", divider="gray")
 
 
 best_model = tf.keras.models.load_model('modelConv4_test.h5')
@@ -45,8 +45,8 @@ if uploadFile is not None:
         prediction = best_model.predict(test)
         y_pred = np.argmax(prediction, axis=1)
         if(y_pred == 0):
-            st.write(str("{:.2f}".format(prediction[0][0]*100)+"% of chance that this image contains a kidney stone"))
+            st.write("This image has a " + str("{:.2f}".format(prediction[0][0]*100)+"% probability of containing a kidney stone."))
         if(y_pred == 1):
-            st.write(str("{:.2f}".format(prediction[0][0]*100)+"% of chance that this image does not contains a kidney stone"))    
+            st.write("This image has a " + str("{:.2f}".format(prediction[0][1]*100)+"% probability of not containing a kidney stone."))    
 else:
     st.write("Make sure you image is in JPG/PNG Format.")
