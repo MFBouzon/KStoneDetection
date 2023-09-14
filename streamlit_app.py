@@ -13,7 +13,7 @@ def load_image(img):
     image = np.array(im)
     return image
 
-best_model = tf.keras.models.load_model('conv4_test.h5')
+best_model = tf.keras.models.load_model('modelConv4_test.h5')
 # Uploading the File to the Page
 uploadFile = st.file_uploader(label="Upload image", type=['jpg', 'png'])
 
