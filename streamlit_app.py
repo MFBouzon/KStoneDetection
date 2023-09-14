@@ -33,7 +33,7 @@ if uploadFile is not None:
     st.write("Image Uploaded Successfully")
     if st.button('Diagnosis'):
         #st.write("100%")
-        X = Image.open(img)
+        X = Image.open(uploadFile)
         X = X.resize(224,224)
         X = X / 255.0
         prediction = best_model.predict(X)
