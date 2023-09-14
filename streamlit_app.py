@@ -16,7 +16,7 @@ best_model = tf.keras.models.load_model('modelConv4_test.h5')
 # Uploading the File to the Page
 uploadFile = st.file_uploader(label="Upload image", type=['jpg', 'png'])
 
-st.title("Kidney Stone Detection from Coronal CT Images", divider="black")
+st.title("Kidney Stone Detection from Coronal CT Images")
 st.header("Upload a coronal CT image to be diagnosted")
 
 # Checking the Format of the page
