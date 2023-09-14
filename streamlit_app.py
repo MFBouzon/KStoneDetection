@@ -32,10 +32,11 @@ if uploadFile is not None:
     st.markdown(hide_img_fs, unsafe_allow_html=True)
     st.write("Image Uploaded Successfully")
     if st.button('Diagnosis'):
- #      X = Image.open(img)
- #      X = X.resize(224,224)
- #      X = X / 255.0
- #      prediction = best_model.predict(X)
+        st.write("100%")
+        #X = Image.open(img)
+        #X = X.resize(224,224)
+        #X = X / 255.0
+        #prediction = best_model.predict(X)
         #y_pred = np.argmax(prediction, axis=1)
         #st.write(y_pred + " " + prediction)
 else:
